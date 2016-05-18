@@ -198,6 +198,89 @@
 
       <div class="body-wrap">
   
+    <article id="post-如何用js读取字符串中每个字符重复的次数？" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/18/如何用js读取字符串中每个字符重复的次数？/" class="article-date">
+  	<time datetime="2016-05-18T06:28:34.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/18/如何用js读取字符串中每个字符重复的次数？/">如何用js读取字符串中每个字符重复的次数？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前面试的时候曾经遇到过一个这样的问题，当时被卡住了，今天偶然在<a href="https://segmentfault.com/" target="_blank" rel="external">segmentfault</a>看到了有人提了，细细的琢磨了下每个答案，收获颇丰，摘录在此，以备以后翻阅。<a href="https://segmentfault.com/q/1010000005070166" target="_blank" rel="external">原文链接</a></p>
+<p>方法一<br><code>var arr = &#39;abcdaabc&#39;;
+    var info = arr
+    .split(&#39;&#39;)
+    .reduce((p, k) =&gt; (p[k] ? p[k]++ : p[k] = 1, p), {});
+    console.log(info);</code></p>
+<p>方法二<br><code>var temp = {};
+   &#39;abcdaabc&#39;.replace(/(\w{1})/g,function($1){
+        temp[$1] ? temp[$1]+=1 : temp[$1] = 1;
+    })
+    console.log(temp)</code></p>
+<p>方法三<br><code>const arr=&quot;abcdaabc&quot;;
+    let counter = {};
+    for (let i = 0, len = arr.length; i &lt; len; i++ ) {
+        counter[arr[i]] ? counter[arr[i]]++ : counter[arr[i]] = 1;
+    }
+    console.log(counter);</code><br>方法四</p>
+<p>`var str = “aasdkfjwoensweljoipwefslnvxcvasfs”;</p>
+<pre><code>str = str.split(&apos;&apos;).sort().join(&apos;&apos;);
+
+var arr = str.match(/(\w)\1+/g);
+
+var result = {}
+
+for(var i = 0, j = arr.length; i &lt; j; i++){
+    var item = arr[i];
+    result[item.charAt(0)] = item.length;
+}
+
+console.table(result);
+</code></pre><p>`</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-用css3做一个小尖角" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
