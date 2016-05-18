@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>A propos</li>
 						
 					</ul>
 				</div>
@@ -225,24 +225,25 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>之前面试的时候曾经遇到过一个这样的问题，当时被卡住了，今天偶然在<a href="https://segmentfault.com/" target="_blank" rel="external">segmentfault</a>看到了有人提了，细细的琢磨了下每个答案，收获颇丰，摘录在此，以备以后翻阅。<a href="https://segmentfault.com/q/1010000005070166" target="_blank" rel="external">原文链接</a></p>
-<p>方法一<br><code>var arr = &#39;abcdaabc&#39;;
-    var info = arr
-    .split(&#39;&#39;)
-    .reduce((p, k) =&gt; (p[k] ? p[k]++ : p[k] = 1, p), {});
-    console.log(info);</code></p>
-<p>方法二<br><code>var temp = {};
-   &#39;abcdaabc&#39;.replace(/(\w{1})/g,function($1){
-        temp[$1] ? temp[$1]+=1 : temp[$1] = 1;
-    })
-    console.log(temp)</code></p>
-<p>方法三<br><code>const arr=&quot;abcdaabc&quot;;
-    let counter = {};
-    for (let i = 0, len = arr.length; i &lt; len; i++ ) {
-        counter[arr[i]] ? counter[arr[i]]++ : counter[arr[i]] = 1;
-    }
-    console.log(counter);</code><br>方法四</p>
-<p>`var str = “aasdkfjwoensweljoipwefslnvxcvasfs”;</p>
-<pre><code>str = str.split(&apos;&apos;).sort().join(&apos;&apos;);
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><pre><code>var arr = &apos;abcdaabc&apos;;
+var info = arr
+.split(&apos;&apos;)
+.reduce((p, k) =&gt; (p[k] ? p[k]++ : p[k] = 1, p), {});
+console.log(info);
+</code></pre><h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><pre><code>var temp = {};
+   &apos;abcdaabc&apos;.replace(/(\w{1})/g,function($1){
+    temp[$1] ? temp[$1]+=1 : temp[$1] = 1;
+});
+console.log(temp);
+</code></pre><h4 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h4><pre><code>const arr=&quot;abcdaabc&quot;;
+let counter = {};
+for (let i = 0, len = arr.length; i &lt; len; i++ ) {
+    counter[arr[i]] ? counter[arr[i]]++ : counter[arr[i]] = 1;
+}
+console.log(counter);
+</code></pre><h4 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h4><pre><code>var str = &quot;aasdkfjwoensweljoipwefslnvxcvasfs&quot;;
+
+str = str.split(&apos;&apos;).sort().join(&apos;&apos;);
 
 var arr = str.match(/(\w)\1+/g);
 
@@ -254,8 +255,7 @@ for(var i = 0, j = arr.length; i &lt; j; i++){
 }
 
 console.table(result);
-</code></pre><p>`</p>
-
+</code></pre>
       
     </div>
     
