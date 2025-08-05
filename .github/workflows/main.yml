@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.3.1
 
       - name: Build and Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v2
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} ## GitHub 密钥 ACCESS_TOKEN 是在第二步Settings的Secrets中新增时定义的Name,要保持一致
           BASE_BRANCH: dev # The branch the action should deploy from.
