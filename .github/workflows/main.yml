@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     # 步骤
     steps:
+
       # 官方action，将代码拉取到虚拟机
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,8 +27,13 @@ jobs:
           branch: gh-pages # 部署后提交到那个分支
           folder: dist # 这里填打包好的目录名称
 
+      - name: Test   # 测试自动发邮件服务
+        run: 
+          echo ${{ secrets.EMAIL_USERNAME }}
+
           # 步骤3: 发送邮件通知
       - name: 发送构建部署结果邮件
+        if: success()
         uses: dawidd6/action-send-mail@v3
         with:
           # SMTP服务器配置 (以Gmail为例)
@@ -40,7 +46,7 @@ jobs:
           # 收件人邮箱，可以是多个，用逗号分隔
           to: my@coco-project.com, aimee_y12@163.com
           # 发件人邮箱
-          from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
+          from: GitHub Actions
           # 邮件内容
           body: |
             项目 ${{ github.repository }} 的构建部署已完成！
